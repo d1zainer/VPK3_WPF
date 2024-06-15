@@ -1,0 +1,134 @@
+﻿<Window x:Class="TPCHR.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TPCHR"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="500" Width="900" >
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,0.5" StartPoint="0.5, 0">
+                <GradientStop Color="#B2F5DEB3"/>
+                <GradientStop Color="#B25BD5C3" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <Border BorderBrush="White" BorderThickness="2" Margin="290,90,290,100">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5 0" StartPoint="0,0.5">
+                    <GradientStop Color="#FFFCD997"/>
+                    <GradientStop Color="#FF21B09B" Offset="1.5"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+
+            <Grid>
+
+                <Label Content="Авторизация" VerticalAlignment="Top" Width="320" HorizontalContentAlignment="Center" Height="30" FontSize="19" FontFamily="Courier New" Background="#B221B09B" HorizontalAlignment="Center" RenderTransformOrigin="0.667,0.424" Foreground="White" FontWeight="Bold" />
+
+                <Button x:Name="bLogin" Content="Sign in" Margin="18,57,178,0" VerticalAlignment="Top" Height="25" Click="bLogin_Click" Background="#7221B09B" FontFamily="Courier New" Foreground="White" BorderBrush="White" FontSize="13" FontWeight="Bold">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <!-- Устанавливаем точку трансформации в центр кнопки -->
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1.1" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.1" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="bRegistration" Content="Registration" Margin="178,57,18,0" VerticalAlignment="Top" Height="25" Click="bRegistration_Click" Background="#7221B09B" Foreground="White" FontFamily="Courier New" BorderBrush="White" FontWeight="Bold" FontSize="13">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <!-- Устанавливаем точку трансформации в центр кнопки -->
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1.1" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.1" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="bEnter" Content="Enter" HorizontalAlignment="Center" Margin="0,235,0,0" Width="120"  Background="#7221B09B" Foreground="White" FontFamily="Courier New" BorderBrush="White" FontSize="14" FontWeight="Bold" Click="bEnter_Click_1" Height="23" VerticalAlignment="Top">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                            <!-- Устанавливаем точку трансформации в центр кнопки -->
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <EventTrigger RoutedEvent="MouseEnter">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1.1" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.1" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="MouseLeave">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1" Duration="0:0:0.2"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <TextBox x:Name="tbLogin" HorizontalAlignment="Center" Margin="0,119,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="tbPass1" HorizontalAlignment="Center" Margin="0,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="Login:" HorizontalAlignment="Center" Height="26" VerticalAlignment="Top" Margin="0,93,0,0" Foreground="White" FontFamily="Courier New" FontSize="14" HorizontalContentAlignment="Center"/>
+                <Label Content="Password" HorizontalAlignment="Center" VerticalAlignment="Top" Height="27" Margin="0,138,0,0" FontSize="14" FontFamily="Courier New" Foreground="White" HorizontalContentAlignment="Center"/>
+
+                <TextBox x:Name="tbPass2" HorizontalAlignment="Center" Margin="0,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label x:Name ="pass2" Content="Password" HorizontalAlignment="Center" VerticalAlignment="Top" Height="27" Margin="0,182,0,0" FontSize="14" FontFamily="Courier New" Foreground="White"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

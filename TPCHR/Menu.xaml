@@ -1,0 +1,147 @@
+﻿<Window x:Class="TPCHR.Menu"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TPCHR"
+        mc:Ignorable="d"
+        Title="MenuWindow" Height="500" Width="900">
+
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="CustomButtonStyle">
+            <Setter Property="Background" Value="#7221B09B"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Courier New"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1.1" Duration="0:0:0.2"/>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1.1" Duration="0:0:0.2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleX" To="1" Duration="0:0:0.2"/>
+                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.ScaleY" To="1" Duration="0:0:0.2"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0,0.5" StartPoint="0.5, 0">
+                <GradientStop Color="#B2F5DEB3"/>
+                <GradientStop Color="#B25BD5C3" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Label x:Name="lUser" Content="Label" HorizontalAlignment="Left" Margin="40,12,0,0" VerticalAlignment="Top" Height="46" Width="629" FontSize="24" FontStyle="Normal" FontFamily="Courier New" Foreground="Black"/>
+
+        <DataGrid x:Name="dgMain" HorizontalAlignment="Left" Height="261" Margin="40,184,0,0" VerticalAlignment="Top" Width="648">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=PositionID}" Header="ID товара" Width="Auto">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding Path=PositionName}" Header="Название товара" Width="*">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding Path=PositionType}" Header="Тип товара" Width="Auto">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding Path=PositionValue}" Header="Количество товара" Width="Auto">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding Path=DayOfBuy, StringFormat=dd.MM.yyyy}" Header="День покупки" Width="Auto">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding Path=PositionPrice}" Header="Цена за товар" Width="Auto">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding Path=PriceCurrency}" Header="Цена в валюте" Width="*">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Котировки" HorizontalAlignment="Left" Margin="720,296,0,0" VerticalAlignment="Top" Height="28" Width="140" FontSize="18" HorizontalContentAlignment="Center" FontFamily="Courier New" VerticalContentAlignment="Center"/>
+        <Button x:Name="bQuotes" Content=" Получить &#xD;&#xA;котировки" HorizontalAlignment="Left" Height="40" Margin="720,244,0,0" VerticalAlignment="Top" Width="140" Style="{StaticResource CustomButtonStyle}" Click="bQuotes_Click"/>
+
+        <Button x:Name="bAnalys" Content="Провести анализ" HorizontalAlignment="Left" Height="40" Margin="720,184,0,0" VerticalAlignment="Top" Width="140" Style="{StaticResource CustomButtonStyle}"/>
+
+        <Button x:Name="bMarkup" Content="Установить&#xD;&#xA; наценку" HorizontalAlignment="Center" Margin="0,124,0,0" VerticalAlignment="Top" Height="40" Width="140" Style="{StaticResource CustomButtonStyle}"  />
+        <Button x:Name="bAdd" Content=" Добавить&#xD;&#xA;информацию" HorizontalAlignment="Left" Margin="547,124,0,0" VerticalAlignment="Top" Height="40" Width="141" Style="{StaticResource CustomButtonStyle}" Click="bAdd_Click"/>
+        <Button x:Name="bUpdate" Content="Обновить БД" HorizontalAlignment="Left" Margin="39,124,0,0" VerticalAlignment="Top" Height="40" Width="141" Style="{StaticResource CustomButtonStyle}" />
+        <TextBox x:Name="tbPosName" HorizontalAlignment="Left" Height="20" Margin="40,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
+        <ComboBox x:Name="cbPosType" HorizontalAlignment="Left" Margin="208,84,0,0" VerticalAlignment="Top" Width="140" Height="20"/>
+        <TextBox x:Name="tbPosValue" HorizontalAlignment="Center" Margin="0,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" Height="20" />
+        <TextBox x:Name="tbPosPrice" HorizontalAlignment="Left" Margin="548,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42,66,0,0" TextWrapping="Wrap" Text="Название товара" VerticalAlignment="Top" Width="136" FontSize="14" FontFamily="Courier New" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="210,67,0,0" TextWrapping="Wrap" Text="Тип товара" VerticalAlignment="Top" Width="136" Foreground="Black" FontFamily="Courier New" FontSize="14" FontWeight="Bold" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="378,66,0,0" TextWrapping="Wrap" Text="Количество товара" VerticalAlignment="Top" Width="147" FontSize="14" FontWeight="Bold" FontFamily="Courier New"/>
+        <TextBlock HorizontalAlignment="Left" Margin="550,67,0,0" TextWrapping="Wrap" Text="Цена за товар" VerticalAlignment="Top" Width="136" TextAlignment="Center" FontWeight="Bold" FontFamily="Courier New" FontSize="14"/>
+        <Border HorizontalAlignment="Left" Height="119" Margin="720,324,0,0" VerticalAlignment="Top" Width="140">
+            <ListBox x:Name="lbQuotes" Margin="0,0,0,-1"/>
+        </Border>
+        <Button x:Name="bDownload_Table" Content="Загрузить таблицу" HorizontalAlignment="Left" Margin="208,124,0,0" VerticalAlignment="Top" Height="40" Width="140" Style="{StaticResource CustomButtonStyle}" Click="bDownload_Table_Click" />
+        <TextBlock HorizontalAlignment="Left" Margin="723,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="136" TextAlignment="Center" FontWeight="Bold" FontFamily="Courier New" FontSize="14"><Run Language="ru-ru" Text="День покупки"/></TextBlock>
+        <TextBox x:Name="tbDayOfBuy" 
+         HorizontalAlignment="Left" 
+         Margin="720,84,0,0" 
+         VerticalAlignment="Top" 
+         Width="139" 
+         Height="20" 
+         Text="{Binding DayOfBuy, StringFormat=dd.MM.yyyy}" />
+    </Grid>
+</Window>
